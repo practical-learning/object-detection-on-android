@@ -17,3 +17,9 @@ What you will learn:
 First of all collect the images on which you want to train the model. Here I am going to train the object detection model on the dataset of apples. And trained model will detect good and damaged apples . Create one folder named "Dataset" and in this folder create two folders named train and test. Train folder will have the data which we will be using for training and test folder will have all the data which we will use for validating the model. General rule for dividing the data into train and test is 80-20 means 80% of the total images will be used for training and 20% of the total images will be used for testing.
 
 All the images for training and testing will be in folder named images under the train and test folder. If you want to use same dataset which I am using you can download the dataset from this link https://github.com/OlafenwaMoses/AppleDetection/releases/
+
+If you have your own dataset you can use that also.
+
+Next we will label the dataset. To label the dataset we will label image tool follow the installation istruction here https://github.com/tzutalin/labelImg
+
+After installing Label Image tool open the tool and from the view menu option enable Auto save option. 
