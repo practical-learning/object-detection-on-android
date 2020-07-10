@@ -22,4 +22,14 @@ If you have your own dataset you can use that also.
 
 Next we will label the dataset. To label the dataset we will label image tool follow the installation istruction here https://github.com/tzutalin/labelImg
 
-After installing Label Image tool open the tool and from the view menu option enable Auto save option. 
+After installing Label Image tool open the tool and from the view menu option enable Auto save option , as this will save a lot of time while labelling the images.
+
+Select open dir option and open the images for train folder . First we will be labelling our training images and then we will label test images. After that select "change save dir" option and make one new folder inside train folder named annotations and open it. This folder will save all the labelled files.
+
+To start labelling press "W" key or select "create rectangle" option. It will highlight the cursor with two lines. Mark the desired object which you want to detect. After that enter the name of the object, this will be the label of this object. Same way mark all the other objects in image. After marking all the objects press "D" key and this will save the image and open next image.
+
+If you open the annotations folder in train folder you will see the xml files with same name as the name of image. Same way label all the images in train and test folder.
+
+Next we will setup Tensorflow Object detection API.
+
+Make sure you have Python 3 installed on your system. Install Tensorflow using this command ```pip3 install tensorflow==1.15```
