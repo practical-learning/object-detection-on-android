@@ -37,8 +37,8 @@ Install Tensorflow using this command ```pip3 install tensorflow==1.15```
 
 Install these dependencies :
 
-`pip install --user Cython`
-`pip install --user contextlib2`
+`pip install --user Cython`\n
+`pip install --user contextlib2`\n
 `pip install --user pillow
 pip install --user lxml
 pip install --user jupyter
