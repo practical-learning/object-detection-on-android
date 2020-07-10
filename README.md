@@ -32,4 +32,15 @@ If you open the annotations folder in train folder you will see the xml files wi
 
 Next we will setup Tensorflow Object detection API.
 
-Make sure you have Python 3 installed on your system. Install Tensorflow using this command ```pip3 install tensorflow==1.15```
+Make sure you have Python 3 installed on your system. As tensorflow 2.0 version have some compatibilty issues with Object Detection API so we will use Tensorflow v1.15. 
+Install Tensorflow using this command ```pip3 install tensorflow==1.15```
+
+Install these dependencies :
+
+`pip install --user Cython`
+`pip install --user contextlib2`
+`pip install --user pillow
+pip install --user lxml
+pip install --user jupyter
+pip install --user matplotlib
+pip install --user tf_slim`
