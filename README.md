@@ -38,11 +38,40 @@ Install Tensorflow using this command ```pip3 install tensorflow==1.15```
 Install these dependencies :
 
 ```
-pip install --user Cython
-pip install --user contextlib2
-pip install --user pillow
-pip install --user lxml
-pip install --user jupyter
-pip install --user matplotlib
-pip install --user tf_slim
+pip3 install --user Cython
+pip3 install --user contextlib2
+pip3 install --user pillow
+pip3 install --user lxml
+pip3 install --user jupyter
+pip3 install --user matplotlib
+pip3 install --user tf_slim
+pip3 install --user pycocotools
 ```
+
+Install Protobuf 
+
+For Mac
+
+```brew install protobuf```
+
+Clone the object detection models repository
+
+```git clone https://github.com/tensorflow/models.git```
+
+Compile Protobuf 
+
+```# From models/research/
+protoc object_detection/protos/*.proto --python_out=.
+```
+
+Change PYTHONPATH variable:
+
+Add this to the bottom of .bash_profile file
+
+export PYTHONPATH=$PYTHONPATH:"<path to the models folder>/research":"<path to the models folder>/research/slim"
+  
+To test the installation of object detection API run below command from models/research folder
+
+```python3 object_detection/builders/model_builder_tf1_test.py```
+
+
