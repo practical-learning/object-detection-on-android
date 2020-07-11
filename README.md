@@ -74,4 +74,4 @@ To test the installation of object detection API run below command from models/r
 
 ```python3 object_detection/builders/model_builder_tf1_test.py```
 
-
+Edit xml_to_scv.py file , set the path of annotations folder in train folder and name of the csv file to "train.csv" save the file and run it from terminal using python3. This command will generate csv file from annotated xml files. After generating train.csv again edit xml_to_csv.py file and set the path to annotations folder in test folder and name the csv file as test.csv. Save the file and run it using python3 and this will generate test.csv file.
