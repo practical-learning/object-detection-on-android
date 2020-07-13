@@ -76,4 +76,41 @@ To test the installation of object detection API run below command from models/r
 
 Edit xml_to_csv.py file , set the path of annotations folder in train folder and name of the csv file to "train.csv" save the file and run it from terminal using python3. This command will generate csv file from annotated xml files. After generating train.csv again edit xml_to_csv.py file and set the path to annotations folder in test folder and name the csv file as test.csv. Save the file and run it using python3 and this will generate test.csv file.
 
-Edit generate_tf_record.py file , goto function named class_text_to_int and change row label to the label which you use while labelling the data. As I have used two labels apple and damaged_apple so I will add them here. Int valueswhich this function will return will be 1 for first label , 2 for second label and so on. As I have only two labels "apple" and "damaged_apple" so this function will return 1 and 2.
+Edit generate_tfrecord.py file , goto function named class_text_to_int and change row label to the label which you use while labelling the data. As I have used two labels apple and damaged_apple so I will add them here. Int valueswhich this function will return will be 1 for first label , 2 for second label and so on. As I have only two labels "apple" and "damaged_apple" so this function will return 1 and 2.
+Save the changes in generate_tfrecord.py file and run it from terminal with Python3 with below command
+
+```
+python3 generate_tfrecord.py --csv_input=<path of train.csv file>  --output_path=<path of the output directory>/train.record --image_dir=<path to the train images folder>
+``` 
+
+Replace the <path ...> with the correct paths.
+
+Above command will generate train.record file from training images and it take information about the bounding boxes from csv file which we pass in argument.
+
+Same way generate test.record file.
+
+```
+python3 generate_tfrecord.py --csv_input=<path of test.csv file>  --output_path=<path of the output directory>/test.record --image_dir=<path to the test images folder>
+```
+
+To train the model we will use pretrained model as our initial checkpoint.This way we are not training our model from scratch and it will take less time for our new model to get trained. Create new folder named pretrained_model and in this folder download the pretrained ssd mobilenet v2 model from this link 
+and extract the downloaded file.
+
+Create label_map.pbtxt file in dataset folder. This file will have the mapping of our labels with int ids. Check the content of label_map.pbtxt file from this link  change it according to your labels.
+
+Next open the pipeline.config file in the pre-trained SSD model folder which you have downloaded in previous step. In this file first change the num_classes variable value to the numbers of classes or number of labels in your dataset. Dataset which I am using have only 2 labels "apple" and "damaged_apple" so num of classes are 2 , change it according to your datatset.
+
+Next change the finetune checkpoint path to the path of the model checkpoint file in pretrained SSD model folder.
+
+In the train input reader change the label map path to the label_map.pbtxt file in dataset folder and change the input path to the path of train.record file in dataset folder.
+
+In the eval input reader change the label map path to lable_map.pbtxt file which is same as we used above and change the input path to test.record file in dataset folder.
+Last in the quantization chnage the delay value to some lower number like I used 4800.
+After making all the chnages save the file.
+
+To start training open the terminal in research folder or change the path in terminal to research folder and run this command. 
+
+```
+python3 object_detection/legacy/train.py --logtostderr --train_dir=<training fodler path>  --pipeline_config_path=<path of pipeline.config file>
+```
+For training folder path in above command , make new folder where you want to save your trained model.
