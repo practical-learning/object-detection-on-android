@@ -93,10 +93,10 @@ Same way generate test.record file.
 python3 generate_tfrecord.py --csv_input=<path of test.csv file>  --output_path=<path of the output directory>/test.record --image_dir=<path to the test images folder>
 ```
 
-To train the model we will use pretrained model as our initial checkpoint.This way we are not training our model from scratch and it will take less time for our new model to get trained. Create new folder named pretrained_model and in this folder download the pretrained ssd mobilenet v2 model from this link 
+To train the model we will use pretrained model as our initial checkpoint.This way we are not training our model from scratch and it will take less time for our new model to get trained. Create new folder named pretrained_model and in this folder download the pretrained ssd mobilenet v2 model from this link https://github.com/practical-learning/object-detection-on-android/releases/download/v1.0/ssd_mobilenet_v2_quantized_300x300_coco_2019_01_03.tar.gz
 and extract the downloaded file.
 
-Create label_map.pbtxt file in dataset folder. This file will have the mapping of our labels with int ids. Check the content of label_map.pbtxt file from this link  change it according to your labels.
+Create label_map.pbtxt file in dataset folder. This file will have the mapping of our labels with int ids. Check the content of label_map.pbtxt file from this link https://github.com/practical-learning/object-detection-on-android/blob/master/label_map.pbtxt  change it according to your labels.
 
 Next open the pipeline.config file in the pre-trained SSD model folder which you have downloaded in previous step. In this file first change the num_classes variable value to the numbers of classes or number of labels in your dataset. Dataset which I am using have only 2 labels "apple" and "damaged_apple" so num of classes are 2 , change it according to your datatset.
 
